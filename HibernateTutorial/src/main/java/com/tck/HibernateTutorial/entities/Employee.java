@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 
 @Entity
@@ -80,6 +82,7 @@ public class Employee {
 		this.manager = manager;
 	}
 	@Column(name="HIRE_DATE", nullable = false)
+	@Temporal(TemporalType.DATE)
 	public Date getHireDate() {
 		return hireDate;
 	}
@@ -108,7 +111,7 @@ public class Employee {
 	public void setDepartment(Department department) {
 		this.department = department;
 	}
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = empId)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "empId")
 	public Set<Employee> getEmployees() {
 		return employees;
 	}

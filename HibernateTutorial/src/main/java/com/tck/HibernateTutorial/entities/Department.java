@@ -67,7 +67,7 @@ public class Department {
 	}
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "department")
 	public Set<Employee> getEmployee() {
-		return Employee;
+		return employee;
 	}
 
 	public void setEmployee(Set<Employee> employee) {
